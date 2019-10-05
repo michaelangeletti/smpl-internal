@@ -1,0 +1,6 @@
+Verifying checksums on the server using openssl:
+
+checksum-tools -a verify -q -e .md5 -r smpl@sul-smpl.stanford.edu:/pool0/smplX/path/to/file -s /usr/bin/openssl
+
+---
+
