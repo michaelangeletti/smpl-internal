@@ -1,8 +1,14 @@
-SMPL workstations should have verbose mode on startup:
+SMPL workstations should have verbose mode set in nvram boot-args on startup:
 
 To permanently start up in verbose mode:  sudo nvram boot-args="-v"
 To disable all nvram boot-args:  sudo nvram boot-args=
 To check nvram settings:  nvram -p 
 
 ----
+
+Disable per-session history file in Mojave:  touch ~/.bash_sessions_disable .
+
+----
+
+
 
