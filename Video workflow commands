@@ -1,6 +1,41 @@
-Verifying checksums on the server using openssl:
+---
+
+Verifying checksums on the server using checksum-tools and openssl:
 
 checksum-tools -a verify -q -e .md5 -r smpl@sul-smpl.stanford.edu:/pool0/smplX/path/to/file -s /usr/bin/openssl
 
 ---
+
+for loop
+
+---
+
+generate techmd XML
+
+---
+
+FTK seaming raw disk images
+
+---
+
+ddrescue
+
+---
+
+rotate video automate
+
+---
+
+using screen command in ssh
+
+---
+
+mount classic dd image
+
+---
+
+tarball/unpack tarball to a specific location
+
+---
+
 
