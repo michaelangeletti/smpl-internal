@@ -1,0 +1,8 @@
+in sul-smpl parent directory (i.e. smpl6):
+
+for x in `find /pool0/smpl16/M0741_genesis/legacy-3664/content/ -type f -name "*_sh.mov*" -type f ! -name "*.md5*"`
+do
+echo scp smpl@sul-smpl:$x /Volumes/Jerry/SG_sh
+done
+
+copy what it prints into your text doc and run 'chmod +x' on the text file in order to run it.
