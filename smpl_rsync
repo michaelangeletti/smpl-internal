@@ -1,0 +1,51 @@
+rsync -a -v -r -v -v --progress --stats /source /destination
+
+---
+
+rsync - invokes process
+
+-a, --archive
+This is equivalent to -rlptgoD. It is a quick way of saying you want recursion and want to preserve almost everything (with -H being a notable omission). The only exception to the above equivalence is when --files-from is specified, in which case -r is not implied.
+
+	-r recursive
+	-l copy symbolic links as symbolic links
+	-p preserve permissions 
+	-t preserve modification times
+	-g preserve group
+	-o preserve owner
+	-D preserve device files, preserve special files
+
+-v, --verbose
+This option increases the amount of information you are given during the transfer. By default, rsync works silently. A single -v will give you information about what files are being transferred and a brief summary at the end. Two -v options will give you information on what files are being skipped and slightly more information at the end. More than two -v options should only be used if you are debugging rsync.
+
+-r, --recursive
+This tells rsync to copy directories recursively. See also --dirs (-d).
+
+--progress
+This option tells rsync to print information showing the progress of the transfer. This gives a bored user something to watch. Implies --verbose if it wasn't already specified.
+
+--stats
+This tells rsync to print a verbose set of statistics on the file transfer, allowing you to tell how effective rsync's delta-transfer algorithm is for your data.
+
+---
+DOWN
+
+rsync -avr -v -v --progress --stats smpl@sul-smpl.stanford.edu:/pool0/path/to/source/files /path/to/destination
+
+---
+UPLOAD
+
+rsync -avr -v -v --progress --stats /path/to/source/files smpl@sul-smpl.stanford.edu:/pool0/path/to/destination/directory
+
+----
+LOCAL
+
+rsync -avr -v -v --progress --stats /Volumes/dav3_media_1/M1090_fuller_legacy_for_ffv1/batch1/batch_1 /Volumes/M1090_TRANSCODING/batch_3 /Volumes/M1090_TRANSCODING/mkv
+
+
+
+
+
+
+
+---
