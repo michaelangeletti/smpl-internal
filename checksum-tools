@@ -1,0 +1,5 @@
+checksum-tools -a -generate -e .md5 -r
+
+checksum-tools -a -verify -e .md5 -r
+
+checksum-tools -a verify -q -e .md5 -r smpl@sul-smpl.stanford.edu:/pool0//smpl17/M0741_genesis -s /usr/bin/openssl
