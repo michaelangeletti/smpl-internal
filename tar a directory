@@ -1,0 +1,15 @@
+tar -cvf /Path/To/Destination/yw485jb5903_pm.tar -C /Path/To/Source/yw485jb5903/DPX .
+
+tar ; runs bsdtar in terminal
+-c ; create
+-v ; verbose
+-f ; for specifying the name of the archive
+- C ; specifies working directory (otherwise, will nest from /Volumes)
+
+**Note : The -C my_directory tells tar to change the current directory to my_directory, and then . means "add the entire current directory" (including hidden files and sub-directories). Make sure you do -C my_directory before you do . or else you'll get the files in the current directory.
+
+—————
+
+tar -cvf /path/to/destination/directory/name_of_file_pm.tar -C /path/to/source/files/to/tar .
+
+—————
