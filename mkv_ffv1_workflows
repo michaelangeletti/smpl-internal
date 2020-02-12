@@ -1,0 +1,7 @@
+playback from BMD hardware:  https://github.com/amiaopensource/vrecord/blob/master/vtest.1
+
+output log files:  ffmpeg -dump_attachment:t "" -i vz059sf4694__ffv1.mkv
+
+---
+
+v210-to-ffv1_mkv_transcoding_workflow:  need to add
