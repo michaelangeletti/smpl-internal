@@ -2,6 +2,8 @@ playback from BMD hardware:  https://github.com/amiaopensource/vrecord/blob/mast
 
 output log files:  ffmpeg -dump_attachment:t "" -i vz059sf4694__ffv1.mkv
 
+ffmpeg -i file.mkv -ss 00:00:00 -t 00:39:50 -c:v copy -c:a copy -map 0:0 -map 0:1 -map 0:2 -map 0:3 -map 0:4 file_trimmed.mkv
+
 ---
 
 v210-to-ffv1_mkv_transcoding_workflow:  need to add
