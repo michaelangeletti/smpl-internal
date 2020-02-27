@@ -10,5 +10,5 @@ Disable per-session history file in Mojave:  touch ~/.bash_sessions_disable .
 
 ----
 
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool false; killall Finder
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true; killall Finder
 
