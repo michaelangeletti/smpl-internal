@@ -67,18 +67,23 @@ BSD                             August 21, 2005                            BSD
 ----
 
 
-split -a 2 -b 500000m /Volumes/Jerry/Clint4TB_tar/jw191jc5840_Clint4TB_WU2Q10149794.tar /Volumes/SMPL_17/splits/jw191jc5840_Clint4TB_WU2Q10149794_
+Create tarball from directory containing about 4 TB :
 
+tar cvf /Volumes/Jerry/Clint4TB_tar/jw191jc5840_Clint4TB_WU2Q10149794.tar -C /Volumes/SMPL_17/jw191jc5840 .
 
-This command will split a large file on one drive, and copy the parts to a location on another drive
+Split using 'split' :
 
--a	This appends the parts with two letters beginning with "aa" for the first part, followed by "ab" for the second part, etc.
+split -a 2 -b 500000m /path/to/tar/druid.tar /path/to/destination/disk/splits/druid_pm_
 
--b  This splits the file into 500 GB chunks
+Put together using 'cat' :
 
-followed by "big file" source location
+li-sm-7097-6865:jw191jc5840_Clint4TB_WU2Q10149794_splits video1$ ls
+jw191jc5840_Clint4TB_WU2Q10149794_part_01	jw191jc5840_Clint4TB_WU2Q10149794_part_03	jw191jc5840_Clint4TB_WU2Q10149794_part_05	jw191jc5840_Clint4TB_WU2Q10149794_part_07
+jw191jc5840_Clint4TB_WU2Q10149794_part_02	jw191jc5840_Clint4TB_WU2Q10149794_part_04	jw191jc5840_Clint4TB_WU2Q10149794_part_06	jw191jc5840_Clint4TB_WU2Q10149794_part_08
 
-followed by split files destination location
+li-sm-7097-6865:jw191jc5840_Clint4TB_WU2Q10149794_splits video1$ cat jw191jc5840_Clint4TB_WU2Q10149794_part_?? > /Volumes/SMPL_17/recombined/jw191jc5840_Clint4TB_WU2Q10149794.tar
+
+---
 
 -----
 
