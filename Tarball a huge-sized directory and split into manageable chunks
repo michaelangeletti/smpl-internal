@@ -8,8 +8,17 @@ Note:
 
 cd into the directory, e.g., cd /Users/videolaptop/Desktop/testset/df232gh8754_TestDrive6GB (source directory where the files are)
 
-create split tar:  tar -cvf - . | gsplit --numeric-suffixes=01 --suffix-length=2 -b 500m - /Users/videolaptop/Desktop/splits/df232gh8754_TestDrive6GB_pm_p
+create split tar:   tar -cvf - . | gsplit --numeric-suffixes=01 --suffix-length=2 -b 500m - /Users/videolaptop/Desktop/splits/df232gh8754_TestDrive6GB_pm_p
 
-recombine to one tarball:  cat df232gh8754_TestDrive6GB_pm_p* >df232gh8754_TestDrive6GB_pm.tar
+	The command will tarball the directory into multiple parts with a numerical suffix, i.e., "df232gh8754_TestDrive6GB_pm_p01". There will be no file extension
+
+To recombine to one tarball:  
+
+cd into the directory where the split files are located, e.g., /Users/videolaptop/Desktop/splits/
+
+combine using the cat command:   cat df232gh8754_TestDrive6GB_pm_p* >df232gh8754_TestDrive6GB_pm.tar
+
+Move the tarball to another directory and expand it to verify checksums and file list (hopefully one was generated).
 
 ---
+
