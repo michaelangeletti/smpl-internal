@@ -22,3 +22,8 @@ Move the tarball to another directory and expand it to verify checksums and file
 
 ---
 
+cat example, where split tarballs are in one directory and you're combining them to another:  
+
+cd into the directory where the split tarballs reside. Then use the command below. The path on the other side of the > is the destination directory.
+
+cat vw533xd4125_ClintC_WU2Q30902666_pm_p* >/Volumes/SMPL_17/reassembled/vw533xd4125_ClintC_WU2Q30902666_pm.tar
