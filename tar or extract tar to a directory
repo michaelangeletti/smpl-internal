@@ -13,3 +13,11 @@ tar ; runs bsdtar in terminal
 tar -cvf /path/to/destination/directory/name_of_file_pm.tar -C /path/to/source/files/to/tar .
 
 —————
+
+EXTRACT:
+
+tar -xvf /path/to/tarball -C /path/to/destination/directory
+
+Example:  
+
+tar -xvf /Volumes/SMPL_17/reassembled/vw533xd4125_ClintC_WU2Q30902666_pm.tar -C /Volumes/SMPL_17/vw533xd4125_pm_split_re-combined_and_extracted_FINAL_PRODUCT
