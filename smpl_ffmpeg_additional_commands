@@ -1,1 +1,50 @@
+Blackmagic Media Express creates files with single stream mono audio configurations. When they need to be transformed to stereo pairs, the following can be used.
 
+For this type of file:
+
+  Duration: 00:03:26.06, start: 0.000000, bitrate: 228022 kb/s
+    Stream #0:0(eng): Video: v210 (v210 / 0x30313276), yuv422p10le(smpte170m/smpte170m/bt709, bottom coded first (swapped)), 720x486, 223399 kb/s, SAR 10:11 DAR 400:297, 29.93 fps, 29.97 tbr, 30k tbn, 30k tbc (default)
+    Metadata:
+      creation_time   : 2021-01-28T22:21:22.000000Z
+      handler_name    : Apple Video Media Handler
+      encoder         : Uncompressed 10-Bit YUV
+      timecode        : 00:58:06:00
+    Stream #0:1(eng): Audio: pcm_s24le (lpcm / 0x6D63706C), 48000 Hz, 4 channels, s32 (24 bit), 4608 kb/s (default)
+    Metadata:
+      creation_time   : 2021-01-28T22:21:22.000000Z
+      handler_name    : Apple Sound Media Handler
+      timecode        : 00:58:06:00
+    Stream #0:2(eng): Data: none (tmcd / 0x64636D74) (default)
+    Metadata:
+      creation_time   : 2021-01-28T22:21:22.000000Z
+      handler_name    : Time Code Media Handler
+      reel_name       : M1452_2021-052_09
+      timecode        : 00:58:06:00
+
+-----
+
+This will take the multi-channel single mono audio stream and re-arrange into stereo pairs:
+
+ffmpeg -i file_with_4.0_audio_on_0:1.mov -filter_complex "[0]pan=stereo|c0=c0|c1=c1[a];[0]pan=stereo|c0=c2|c1=c3[b]" -map 0:v -map "[a]" -map "[b]" -c:v copy -c:a pcm_s24le dual_stereo_output.mov
+
+-----
+
+1) The filter_complex is specified
+
+2) When [0] is specified, it's referring to the one 4 channel audio stream in stream 0:1
+
+3) pan=stereo is telling ffmpeg you want to output a stereo pair from some part of stream 0:1
+
+4) c0=c0 is telling ffmpeg that you want the pan left to use 0:1:0 from the 4.0 stream on the first stereo pair
+
+5) c1=c1 is telling ffmpeg that you want the pan right to use 0:1:1 from the 4.0 stream on the first stereo pair
+
+6) The use of [a] at the end specifies that this stereo stream will be called [a] in this FFmpeg command 
+
+6) On the next line, c0=c2 is telling ffmpeg that you want the next stereo pair to use 0:1:2 from the 4.0 stream for pan left on the second stereo pair
+
+7) c1=c3 is telling ffmpeg that you want to use 0:1:3 from the 4.0 stream for pan right on the second stereo pair
+
+8) map 0:v is mapping the video to stream 0:0 in the output file
+
+9) Then -map [a] and -map [b] is mapping each stereo pair to subsequent streams 0:1 and 0:2 in the output file
