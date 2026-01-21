@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Video Transcoding and Archival Pipeline
+Video Transcoding for Wowza streaming
 Batch processes video files with deinterlacing, scaling, and H.264 encoding.
 
 Stanford Media Preservation Lab
